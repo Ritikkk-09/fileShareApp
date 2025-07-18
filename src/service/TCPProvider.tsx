@@ -6,8 +6,9 @@ import DeviceInfo from "react-native-device-info";
 import { Platform } from "react-native";
 import RNFS from 'react-native-fs';
 import { Buffer } from 'buffer';
-import { v4 as uuidv4 } from 'uuid';
 import { produce } from "immer";
+import { v4 as uuidv4 } from 'uuid';
+import { receiveChunkAck, receiveFileAck, sendChunkAck } from "./TCPUtils";
 
 
 
@@ -156,13 +157,13 @@ export const TCPProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
                 const parsedData = JSON.parse(data.toString());
 
                 if (parsedData?.event === 'file_ack') {
-                    receivedFilesAck(parsedData?.file, socket, setReceivedFiles)
+                    receiveFileAck(parsedData?.file, newClient, setReceivedFiles)
                 }
                 if (parsedData?.event === 'send_chunk_ack') {
-                    sendChunkAck(parsedData?.chunkNo, socket, setTotalSentBytes, setSentFiles)
+                    sendChunkAck(parsedData?.chunkNo, newClient, setTotalSentBytes, setSentFiles)
                 }
                 if (parsedData?.event === 'receive_chunk_ack') {
-                    receiveChunkAck(parsedData?.chunk, parsedData?.chunkNo, socket, setTotalReceivedBytes, generateFile)
+                    receiveChunkAck(parsedData?.chunk, parsedData?.chunkNo, newClient, setTotalReceivedBytes, generateFile)
                 }
             })
 
