@@ -31,7 +31,7 @@ import Zocial from 'react-native-vector-icons/Zocial';
 
 
 
-const Icon = ({ type, name, color = '#000', size = 16, onPress, style }:any) => {
+const Icon = ({ type, name, color = '#000', size = 16, onPress, style }: any) => {
     switch (type) {
         case 'fontAwesome':
             return (
@@ -123,7 +123,7 @@ const Icon = ({ type, name, color = '#000', size = 16, onPress, style }:any) => 
                     onPress={onPress && onPress}
                 />
             );
-        case 'ionicons':
+        case 'Ionicons':
             return (
                 <Ionicons
                     style={style}
@@ -133,7 +133,7 @@ const Icon = ({ type, name, color = '#000', size = 16, onPress, style }:any) => 
                     onPress={onPress && onPress}
                 />
             );
-        case 'materialCommunityIcons':
+        case 'MaterialCommunityIcons':
             <MaterialCommunityIcons
                 style={style}
                 name={name}

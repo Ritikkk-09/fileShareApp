@@ -15,9 +15,9 @@ const HomeHeader: FC = () => {
     return (
         <View style={[homeHeaderStyles.mainContainer, { width: '100%', }]}>
             <SafeAreaView />
-            <View style={[commonStyles.flexRowBetween, homeHeaderStyles.container, { marginTop: 40, }]}>
+            <View style={[commonStyles.flexRowBetween, homeHeaderStyles.container, {}]}>
                 <TouchableOpacity>
-                    <Icon type="fontAwesome5" name="menu" size={22} />
+                    <Icon type="Ionicons" name="menu" size={22} />
                 </TouchableOpacity>
                 <Image source={require('../../assets/images/logo_t.png')} style={[homeHeaderStyles.logo]} />
                 <TouchableOpacity onPress={() => setVisible(!visible)}>
@@ -39,11 +39,11 @@ const HomeHeader: FC = () => {
                 <Path fill={"#80BFFF"} d={svgPath} />
                 <Path fill={"url(#grad)"} d={svgPath} />
             </Svg>
-            {visible && 
-            <QRGenerateModal
-                visible={visible}
-                onClose={onQrClose}
-            />}
+            {visible &&
+                <QRGenerateModal
+                    visible={visible}
+                    onClose={onQrClose}
+                />}
         </View>
     )
 }

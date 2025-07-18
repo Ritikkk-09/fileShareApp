@@ -77,13 +77,14 @@ export const sendStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: screenWidth,
+        zIndex: 4
     },
     profileImage: {
         height: 50,
         width: 50,
         resizeMode: "cover",
         borderRadius: 100,
-        zIndex:5
+        zIndex: 5
     },
     qrButton: {
         backgroundColor: "#fff",

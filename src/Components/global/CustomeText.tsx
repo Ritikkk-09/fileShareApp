@@ -5,21 +5,22 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 interface Props {
   variant?:
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "h7"
-    | "h8"
-    | "h9"
-    | "body";
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "h7"
+  | "h8"
+  | "h9"
+  | "body";
   fontFamily?: string;
   fontSize?: number;
-  style?: TextStyle;
+  style?: TextStyle | TextStyle[];
   children?: React.ReactNode;
   numberOfLines?: number;
+  color?: string;
   onLayout?: (event: object) => void;
 }
 
